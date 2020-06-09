@@ -119,16 +119,6 @@ const data = [
   as the others. Refresh the page to see the new article.
 */
 
-
-/* <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
-
-    {three separate paragraph elements}
-
-    <span class='expandButton'></span>
-  </div> */
-
  
  function articleMaker(title, date, firstP, secondP, thirdP){
   const articleDiv = document.createElement('div');
@@ -138,6 +128,8 @@ const data = [
   const p2 = document.createElement('p');
   const p3 = document.createElement('p');
   const spanBtn = document.createElement('span');
+  const buttonOpen =document.createElement('button');
+  const buttonClose = document.createElement('button');
 
   articleDiv.appendChild(titleH2);
   articleDiv.appendChild(pdate);
@@ -145,10 +137,33 @@ const data = [
   articleDiv.appendChild(p2);
   articleDiv.appendChild(p3);
   articleDiv.appendChild(p3);
+  spanBtn.appendChild(buttonOpen);
+  spanBtn.appendChild(buttonClose);
 
+  articleDiv.classList.add('article');
+  spanBtn.classList.add('expandButton');
+  buttonOpen.classList.add('article-open');
+  buttonClose.classList.add('article', 'hide-btn');
 
+  const open = '\u25bc';
+  const close = '\u25b2';
+
+  buttonOpen.textContent = open;
+  buttonClose.textContent = close;
+  titleH2.textContent = title;
+  pdate.textContent = date;
+  p1.textContent = firstP;
+  p2.textContent = secondP;
+  p3.textContent = thirdP;
 
   
+  spanBtn.addEventListener('click',(e)=>{
+     buttonOpen.classList.toggle('hide-btn');
+     buttonClose.classList.toggle('hide-btn');
+     
+     
+  });
+
  return articleDiv;
  };
 
