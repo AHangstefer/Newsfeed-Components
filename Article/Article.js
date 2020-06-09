@@ -131,7 +131,7 @@ const data = [
 
  
  function articleMaker(title, date, firstP, secondP, thirdP){
-  const article = document.createElement('div');
+  const articleDiv = document.createElement('div');
   const titleH2 = document.createElement('h2');
   const pdate =document.createElement('p');
   const p1 = document.createElement('p');
@@ -139,6 +139,21 @@ const data = [
   const p3 = document.createElement('p');
   const spanBtn = document.createElement('span');
 
-  spanBtn.addEventListener
+  articleDiv.appendChild(titleH2);
+  articleDiv.appendChild(pdate);
+  articleDiv.appendChild(p1);
+  articleDiv.appendChild(p2);
+  articleDiv.appendChild(p3);
+  articleDiv.appendChild(p3);
 
+
+
+  
+ return articleDiv;
  };
+
+ const articles = document.querySelector('.articles');
+
+ data.forEach((obj)=>{
+   articles.appendChild(articleMaker(obj.title, obj.date, obj.firstParagraph, obj.secondParagraph, obj.thirdParagraph));
+ });
