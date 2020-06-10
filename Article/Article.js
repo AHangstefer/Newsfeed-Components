@@ -88,6 +88,8 @@ const data = [
   }
 ];
 
+
+
 /* Step 1: Write a component called 'articleMaker' to create an article.
  You want your component to return markup like the template below: 
 
@@ -170,8 +172,22 @@ const data = [
  return articleDiv;
  };
 
+
+ const hey = {
+  title: 'Rick & Morty',
+  date: 'June 6, 1556',
+  firstParagraph: 'Rick & MortyvRick & MortyRick & MortyRick & MortyRick & MortyvvRick & Morty',
+  secondParagraph: 'Rick & MortyRick & MortyRick & MortyRick & MortyRick & MortyRick & Morty',
+  thirdParagraph: 'Rick & MortyRick & MortyRick & MortyRick & Morty'
+
+};
+
+data.push(hey);
+
+
  const articles = document.querySelector('.articles');
 
  data.forEach((obj)=>{
    articles.appendChild(articleMaker(obj.title, obj.date, obj.firstParagraph, obj.secondParagraph, obj.thirdParagraph));
  });
+
