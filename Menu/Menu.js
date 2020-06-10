@@ -10,7 +10,8 @@ let menuItems = [
 ];
 
 /* 
-  Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
+  Step 1: Write a component called 'menuMaker' to create a menu like 
+  the markup below:
 
   <div class="menu">
     <ul>
@@ -20,14 +21,77 @@ let menuItems = [
 
   The 'menuMaker' takes an array as its only argument.
 
-  Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array. 
+  Step 2: Inside the function, iterate over the array creating
+  a list item <li> element for each item in the array. 
   Add those items to the <ul>
 
-  Step 3: Using a DOM selector, select the menu button (the element with a class of 'menu-button') currently on the DOM.
+  Step 3: Using a DOM selector, select the menu button 
+  (the element with a class of 'menu-button') currently on
+   the DOM.
 
-  Step 4: add a click event listener to the menu button. When clicked it should toggle the class 'menu--open' on the menu (your div with a 'menu' class).
+  Step 4: add a click event listener to the menu button.
+  When clicked it should toggle the class 'menu--open' on 
+  the menu (your div with a 'menu' class).
 
   Step 5: return your div with a 'menu' class.
 
-  Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
+  Step 6: Use 'menuMaker' to create a menu using the 'menuItems'
+   array, and append the returned markup to the DOM.
 */
+//{/* <div class="menu">
+    // <ul>
+    //   {each menu item as a list item}
+    // </ul>
+ // </div> */}
+
+ 
+
+ function menuMaker(items){
+   const menuDiv = document.createElement('div');
+   const ulList = document.createElement('ul');
+  //  const li0 = document.createElement('li');
+  //  const li1 = document.createElement('li');
+  //  const li2 = document.createElement('li');
+  //  const li3 = document.createElement('li');
+  //  const li4 = document.createElement('li');
+  //  const li5 = document.createElement('li');
+
+
+
+   menuDiv.appendChild(ulList);
+  //  ulList.appendChild(li0);
+  //  ulList.appendChild(li1);
+  //  ulList.appendChild(li2);
+  //  ulList.appendChild(li3);
+  //  ulList.appendChild(li4);
+  //  ulList.appendChild(li5);
+
+  menuItems.forEach((i)=>{
+    const li = document.createElement('li');
+    li.textContent = i;
+    ulList.appendChild(li);
+  });
+
+  menuDiv.classList.add('menu');
+
+
+
+   
+  
+  const menuButton = document.querySelector('.menu-button');
+  console.log(menuButton);
+
+  menuButton.addEventListener('click', (e)=>{
+    menuDiv.classList.toggle('menu--open');
+    //menuButton.classList.toggle('toggle-on');
+  });
+
+console.log(menuDiv);  
+return menuDiv;
+
+
+ };
+  
+ const body = document.querySelector('body');
+ body.appendChild(menuMaker(menuItems));
+
